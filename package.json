@@ -1,0 +1,47 @@
+{
+    "name": "hapi-joi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.ts",
+        "prettier:fix": "prettier --write \"**/(**.ts)\"",
+        "lint:fix": "eslint --fix ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@hapi/hapi": "^21.3.9",
+        "@hapi/inert": "^6.0.5",
+        "@hapi/vision": "^7.0.3",
+        "hapi-geo-locate": "^4.1.1",
+        "inert": "^5.1.3",
+        "joi": "^17.13.1",
+        "mongoose": "^8.3.3",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-dist": "^5.17.6",
+        "vision": "^5.4.4"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.2.0",
+        "@types/hapi__hapi": "^21.0.0",
+        "@types/hapi__inert": "^5.2.10",
+        "@types/hapi__joi": "^17.1.14",
+        "@types/hapi__vision": "^5.5.8",
+        "@types/node": "^20.12.11",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "globals": "^15.1.0",
+        "hapi-swagger": "^17.2.1",
+        "nodemon": "^3.1.0",
+        "prettier": "^3.2.5",
+        "source-map-support": "^0.5.21",
+        "ts-loader": "^9.5.1",
+        "ts-node": "^10.9.2",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.4.5",
+        "typescript-eslint": "^7.8.0"
+    }
+}
