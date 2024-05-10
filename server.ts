@@ -7,6 +7,7 @@ import Inert from '@hapi/inert';
 import Vision from '@hapi/vision';
 import HapiSwagger from 'hapi-swagger';
 import Joi from 'joi';
+import myQueue from './myQueue';
 
 const init = async () => {
     const server = Hapi.server({
@@ -23,8 +24,7 @@ const init = async () => {
                 info: {
                     title: 'API Documentation',
                     version: '1.0.0'
-                },
-                
+                }
             }
         }
     ]);
@@ -46,7 +46,7 @@ const init = async () => {
             options: {
                 description: 'Get all author',
                 notes: 'Get all author',
-                tags: ['api'] // ADD THIS TAG
+                tags: ['api']
             }
         },
         {
@@ -56,8 +56,8 @@ const init = async () => {
             options: {
                 description: 'Get author by id',
                 notes: 'Get author by id',
-                tags: ['api'], // ADD THIS TAG
-                 validate: {
+                tags: ['api'],
+                validate: {
                     params: Joi.object({
                         id: Joi.string()
                     })
@@ -77,6 +77,30 @@ const init = async () => {
                         name: Joi.string().min(3).max(20),
                         email: Joi.string().min(5).max(50),
                         age: Joi.number().min(18)
+                    })
+                }
+            }
+        },
+        {
+            method: 'POST',
+            path: '/api/test-bull',
+            handler: async (request, h) => {
+                try {
+                    await myQueue.add('test-bull', { payload: request.payload });
+
+                    return h.response({ message: 'Add to queue success' }).code(200);
+                } catch (error: any) {
+                    console.log({ error });
+                    return h.response({ message: 'Add to queue error' }).code(500);
+                }
+            },
+            options: {
+                description: 'test bull',
+                notes: 'test bull',
+                tags: ['api'],
+                validate: {
+                    payload: Joi.object({
+                        num: Joi.number()
                     })
                 }
             }

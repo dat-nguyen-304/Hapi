@@ -39,7 +39,7 @@ class AuthorService {
 
     static async deleteAuthor({ id }: DeleteAuthorPayload) {
         const foundAuthor = await author.findOne({ _id: new Types.ObjectId(id) });
-        if (!foundAuthor) throw new NotFoundError("Author Not found");
+        if (!foundAuthor) throw new NotFoundError('Author Not found');
         return await author.deleteOne({
             _id: new Types.ObjectId(id)
         });

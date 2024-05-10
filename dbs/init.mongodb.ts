@@ -30,7 +30,6 @@ class Database {
         await this.agenda.start();
         console.log('Agenda initialized');
         this.defineDatabaseCheckJob();
-
     }
 
     public static getInstance(): Database {

@@ -45,7 +45,7 @@ class AuthorController {
                 metadata: await AuthorService.getAuthorById(request.params.id)
             });
         } catch (error: any) {
-            return h.response({message: error.message}).code(error.status ?? 500);
+            return h.response({ message: error.message }).code(error.status ?? 500);
         }
     };
 
@@ -56,7 +56,7 @@ class AuthorController {
                 metadata: await AuthorService.deleteAuthor(request.payload as DeleteAuthorPayload)
             });
         } catch (error: any) {
-            return h.response({message: error.message}).code(error.status ?? 500);
+            return h.response({ message: error.message }).code(error.status ?? 500);
         }
     };
 }
