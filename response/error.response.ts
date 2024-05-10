@@ -4,7 +4,7 @@ const StatusCode = {
     FORBIDDEN: 403,
     NOT_FOUND: 404,
     CONFLICT: 409
-}
+};
 
 const StatusMessage = {
     BAD_REQUEST: 'BAD_REQUEST',
@@ -12,12 +12,13 @@ const StatusMessage = {
     FORBIDDEN: 'FORBIDDEN',
     NOT_FOUND: 'NOT_FOUND',
     CONFLICT: 'CONFLICT'
-}
+};
 
-export class ErrorResponse extends Error {
+export class ErrorResponse {
     status: number;
+    message: string;
     constructor(message: string, status: number) {
-        super(message);
+        this.message = message;
         this.status = status;
     }
 }
